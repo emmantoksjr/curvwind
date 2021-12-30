@@ -26,8 +26,8 @@ public class ValidationExceptionHandler extends ResponseEntityExceptionHandler {
             errorData.put(fieldName, message);
         });
 
-        CustomErrorResponse errorClass = new CustomErrorResponse("error","Validation Failed", errorData);
+        CustomResponse customResponse = new CustomResponse("error","Validation Failed", errorData, null);
 
-        return new ResponseEntity<Object>(errorClass, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<Object>(customResponse, HttpStatus.BAD_REQUEST);
     }
 }
