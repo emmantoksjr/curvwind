@@ -5,7 +5,9 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>api-gateway</module>
-	</modules>
+        <module>bill-payment</module>
+        <module>bill-payment-service</module>
+    </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>

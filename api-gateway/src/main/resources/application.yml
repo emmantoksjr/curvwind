@@ -15,6 +15,17 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
-
+  cloud:
+    gateway:
+      routes:
+        - id: BILL-PAYMENT
+          uri: lb://BILL-PAYMENT-SERVICE
+          predicates:
+            - Path=/bill-payment/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: BILL-PAYMENT-SERVICE
+                fallbackuri: forward:/BillPaymentServiceFallBack
 jwt:
   secret: curvwind
